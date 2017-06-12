@@ -10,5 +10,8 @@
         "**/node_modules": true,
         "dist/": true
     },
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "spellchecker.documentTypes": [
+        "markdown"
+    ]
 }
