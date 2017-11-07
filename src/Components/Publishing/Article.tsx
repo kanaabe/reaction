@@ -53,7 +53,9 @@ interface ArticleContainerProps {
 }
 
 @track({ page: "Article" }, {
-  dispatch: data => Events.postEvent(data)
+  dispatch: data => {
+    Events.postEvent(data)
+  }
 })
 export class Article extends React.Component<ArticleProps, ArticleState> {
   static childContextTypes = {
