@@ -8,8 +8,6 @@ import { pMedia as breakpoint } from "../../Helpers"
 import { Fonts } from "../Fonts"
 import { VideoControls } from "../Sections/VideoControls"
 
-import Events from "../../../Utils/Events"
-
 interface Props extends React.HTMLProps<HTMLDivElement> {
   campaign: any
   isMobile?: boolean
