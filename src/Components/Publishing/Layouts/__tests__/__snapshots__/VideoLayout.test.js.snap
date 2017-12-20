@@ -1126,7 +1126,7 @@ exports[`Video Layout matches the snapshot 1`] = `
 
 @media (max-width:720px) {
   .c7 {
-    position: relative;
+    display: none;
   }
 }
 

@@ -112,6 +112,6 @@ const Title = styled.div`
   text-align: center;
   font-weight: 600;
   ${pMedia.sm`
-    position: relative;
+    display: none;
   `}
 `
