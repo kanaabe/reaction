@@ -9,11 +9,11 @@ import { ArticleData } from "../Typings"
 
 interface Props {
   article: ArticleData
+  isHovered?: boolean
   isMobile?: boolean
   isTruncated?: boolean
   marginTop?: string
   onExpand?: any
-  isHovered?: boolean
 }
 
 interface State {
@@ -32,9 +32,13 @@ export class NewsLayout extends Component<Props, State> {
     super(props)
 
     this.state = {
-      isTruncated: this.props.isTruncated,
-      isHovered: this.props.isHovered,
+      isTruncated: this.props.isTruncated || false,
+      isHovered: this.props.isHovered || false,
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isHovered: nextProps.isHovered })
   }
 
   onExpand = () => {
@@ -143,6 +147,7 @@ const NewsContainer = styled.div`
     `
     border-radius: 4px;
     border: 1px solid ${Colors.grayRegular};
+    cursor: pointer;
   `};
 
   ${pMedia.sm`
