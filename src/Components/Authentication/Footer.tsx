@@ -75,8 +75,16 @@ export const Footer = props => {
 const LoginAlternatives = props => (
   <SmallText>
     {"Log in with "}
-    <SmallTextLink onClick={props.onFacebookLogin}>Facebook</SmallTextLink>
+    <SmallTextLink
+      onClick={() => (window.location.href = props.onFacebookLogin)}
+    >
+      Facebook
+    </SmallTextLink>
     {" or "}
-    <SmallTextLink onClick={props.onTwitterLogin}>Twitter.</SmallTextLink>
+    <SmallTextLink
+      onClick={() => (window.location.href = props.onTwitterLogin)}
+    >
+      Twitter.
+    </SmallTextLink>
   </SmallText>
 )

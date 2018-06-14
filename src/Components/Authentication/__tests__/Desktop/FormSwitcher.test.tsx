@@ -29,4 +29,22 @@ describe("FormSwitcher", () => {
       expect(wrapper.find(ResetPasswordForm).length).toEqual(1)
     })
   })
+
+  describe("", () => {
+    it("facebook login button", () => {
+      const wrapper = mount(
+        <FormSwitcher
+          type={ModalType.login}
+          handleSubmit={null}
+          submitUrls={{
+            facebook: "foo",
+            twitter: "bar",
+          }}
+        />
+      )
+      expect(wrapper.find(ResetPasswordForm).length).toEqual(1)
+    })
+
+    it("twitter login button", () => {})
+  })
 })

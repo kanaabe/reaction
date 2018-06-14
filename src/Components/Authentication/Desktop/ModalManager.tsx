@@ -11,7 +11,7 @@ import {
 } from "Components/Authentication/Types"
 
 export interface ModalManagerProps {
-  submitUrls?: { [P in ModalType]: string }
+  submitUrls?: any
   csrf?: string
   redirectUrl?: string
   handleSubmit?: (
@@ -19,8 +19,6 @@ export interface ModalManagerProps {
     values: InputValues,
     formikBag: FormikProps<InputValues>
   ) => void
-  onFacebookLogin?: () => void
-  onTwitterLogin?: () => void
 }
 
 export interface ModalManagerState {
@@ -51,13 +49,7 @@ export class ModalManager extends Component<
   }
 
   render() {
-    const {
-      csrf,
-      submitUrls,
-      redirectUrl,
-      onFacebookLogin,
-      onTwitterLogin,
-    } = this.props
+    const { csrf, submitUrls, redirectUrl } = this.props
     const { currentType, copy } = this.state
 
     if (!currentType) {
@@ -78,8 +70,7 @@ export class ModalManager extends Component<
         <FormSwitcher
           type={currentType}
           handleSubmit={handleSubmit}
-          onFacebookLogin={onFacebookLogin}
-          onTwitterLogin={onTwitterLogin}
+          submitUrls={submitUrls}
         />
       </DesktopModal>
     )

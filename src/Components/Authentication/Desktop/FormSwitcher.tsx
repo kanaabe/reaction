@@ -15,8 +15,7 @@ interface Props {
   handleSubmit: SubmitHandler
   signupIntent?: string
   redirectUrl?: string
-  onFacebookLogin?: () => void
-  onTwitterLogin?: () => void
+  submitUrls?: any
 }
 
 interface State {
@@ -52,7 +51,7 @@ export class FormSwitcher extends React.Component<Props, State> {
         throw new Error(`${this.state.type} mode needs a component`)
     }
 
-    const { values } = this.props
+    const { values, submitUrls } = this.props
     const defaultValues = {
       email: values.email || "",
       password: values.password || "",
@@ -65,6 +64,8 @@ export class FormSwitcher extends React.Component<Props, State> {
         values={defaultValues}
         handleTypeChange={type => this.presentModal(type)}
         handleSubmit={this.props.handleSubmit}
+        onFacebookLogin={submitUrls.facebook}
+        onTwitterLogin={submitUrls.twitter}
       />
     )
   }
