@@ -22,6 +22,8 @@ export interface FormProps {
   values?: InputValues
   handleSubmit?: SubmitHandler
   handleTypeChange?: (modalType: ModalType) => void
+  onTwitterLogin?: () => void
+  onFacebookLogin?: () => void
 }
 
 export interface ModalOptions {
