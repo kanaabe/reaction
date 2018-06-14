@@ -15,6 +15,8 @@ interface Props {
   handleSubmit: SubmitHandler
   signupIntent?: string
   redirectUrl?: string
+  onFacebookLogin?: () => void
+  onTwitterLogin?: () => void
 }
 
 interface State {

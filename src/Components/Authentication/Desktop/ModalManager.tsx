@@ -19,6 +19,8 @@ export interface ModalManagerProps {
     values: InputValues,
     formikBag: FormikProps<InputValues>
   ) => void
+  onFacebookLogin?: () => void
+  onTwitterLogin?: () => void
 }
 
 export interface ModalManagerState {
@@ -49,7 +51,13 @@ export class ModalManager extends Component<
   }
 
   render() {
-    const { csrf, submitUrls, redirectUrl } = this.props
+    const {
+      csrf,
+      submitUrls,
+      redirectUrl,
+      onFacebookLogin,
+      onTwitterLogin,
+    } = this.props
     const { currentType, copy } = this.state
 
     if (!currentType) {
@@ -67,7 +75,12 @@ export class ModalManager extends Component<
         onClose={this.closeModal}
         subtitle={copy}
       >
-        <FormSwitcher type={currentType} handleSubmit={handleSubmit} />
+        <FormSwitcher
+          type={currentType}
+          handleSubmit={handleSubmit}
+          onFacebookLogin={onFacebookLogin}
+          onTwitterLogin={onTwitterLogin}
+        />
       </DesktopModal>
     )
   }
